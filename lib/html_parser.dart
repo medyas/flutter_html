@@ -411,7 +411,7 @@ class HtmlParser extends StatelessWidget {
       wpc.data = false;
     }
 
-    if (tree is ImageContentElement || tree is SvgContentElement) {
+    if (tree is EmptyContentElement) {
       wpc.data = false;
     }
 

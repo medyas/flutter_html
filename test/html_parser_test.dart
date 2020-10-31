@@ -62,42 +62,42 @@ void testNewParser() {
     print(tree.toString());
   });
 
-  test("Video Content Source Parser works correctly", () {
-    ReplacedElement videoContentElement =
-        parseReplacedElement(HtmlParser.parseHTML("""
-      <video width="320" height="240" controls>
-       <source src="movie.mp4" type="video/mp4">
-       <source src="movie.ogg" type="video/ogg">
-       Your browser does not support the video tag.
-      </video>
-    """).getElementsByTagName("video")[0]);
+  // test("Video Content Source Parser works correctly", () {
+  //   ReplacedElement videoContentElement =
+  //       parseReplacedElement(HtmlParser.parseHTML("""
+  //     <video width="320" height="240" controls>
+  //      <source src="movie.mp4" type="video/mp4">
+  //      <source src="movie.ogg" type="video/ogg">
+  //      Your browser does not support the video tag.
+  //     </video>
+  //   """).getElementsByTagName("video")[0]);
+  //
+  //   expect(videoContentElement, isA<VideoContentElement>());
+  //   if (videoContentElement is VideoContentElement) {
+  //     expect(videoContentElement.showControls, equals(true),
+  //         reason: "Controls isn't working");
+  //     expect(videoContentElement.src, hasLength(2),
+  //         reason: "Not enough sources...");
+  //   }
+  // });
 
-    expect(videoContentElement, isA<VideoContentElement>());
-    if (videoContentElement is VideoContentElement) {
-      expect(videoContentElement.showControls, equals(true),
-          reason: "Controls isn't working");
-      expect(videoContentElement.src, hasLength(2),
-          reason: "Not enough sources...");
-    }
-  });
-
-  test("Audio Content Source Parser works correctly", () {
-    ReplacedElement audioContentElement =
-        parseReplacedElement(HtmlParser.parseHTML("""
-      <audio controls>
-        <source src='audio.mp3' type='audio/mpeg'>
-        <source src='audio.wav' type='audio/wav'>
-        Your browser does not support the audio tag.
-      </audio>
-    """).getElementsByTagName("audio")[0]);
-    expect(audioContentElement, isA<AudioContentElement>());
-    if (audioContentElement is AudioContentElement) {
-      expect(audioContentElement.showControls, equals(true),
-          reason: "Controls isn't working");
-      expect(audioContentElement.src, hasLength(2),
-          reason: "Not enough sources...");
-    }
-  });
+  // test("Audio Content Source Parser works correctly", () {
+  //   ReplacedElement audioContentElement =
+  //       parseReplacedElement(HtmlParser.parseHTML("""
+  //     <audio controls>
+  //       <source src='audio.mp3' type='audio/mpeg'>
+  //       <source src='audio.wav' type='audio/wav'>
+  //       Your browser does not support the audio tag.
+  //     </audio>
+  //   """).getElementsByTagName("audio")[0]);
+  //   expect(audioContentElement, isA<AudioContentElement>());
+  //   if (audioContentElement is AudioContentElement) {
+  //     expect(audioContentElement.showControls, equals(true),
+  //         reason: "Controls isn't working");
+  //     expect(audioContentElement.src, hasLength(2),
+  //         reason: "Not enough sources...");
+  //   }
+  // });
 
   test("Test style merging", () {
     Style style1 = Style(
